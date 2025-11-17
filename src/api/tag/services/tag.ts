@@ -1,7 +1,9 @@
+'use strict';
+
 /**
  * tag service
  */
 
-import { factories } from '@strapi/strapi';
+const { createCoreService } = require('@strapi/strapi').factories;
 
-export default factories.createCoreService('api::tag.tag');
+module.exports = createCoreService('api::tag.tag');
