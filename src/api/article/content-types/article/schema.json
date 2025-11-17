@@ -48,6 +48,11 @@
       "inversedBy": "articles",
       "required": true
     },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    },
     "blocks": {
       "type": "dynamiczone",
       "components": ["shared.rich-text"]
