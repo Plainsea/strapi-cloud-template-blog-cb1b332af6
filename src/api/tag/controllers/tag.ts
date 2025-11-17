@@ -1,7 +1,9 @@
+'use strict';
+
 /**
  * tag controller
  */
 
-import { factories } from '@strapi/strapi'
+const { createCoreController } = require('@strapi/strapi').factories;
 
-export default factories.createCoreController('api::tag.tag');
+module.exports = createCoreController('api::tag.tag');
