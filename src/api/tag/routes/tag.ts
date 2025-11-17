@@ -1,7 +1,9 @@
+'use strict';
+
 /**
  * tag router
  */
 
-import { factories } from '@strapi/strapi';
+const { createCoreRouter } = require('@strapi/strapi').factories;
 
-export default factories.createCoreRouter('api::tag.tag');
+module.exports = createCoreRouter('api::tag.tag');
