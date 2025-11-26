@@ -588,16 +588,19 @@ export interface ApiAnnouncementAnnouncement extends Struct.CollectionTypeSchema
     draftAndPublish: true;
   };
   attributes: {
+    buttonTitle: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
         Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'> &
-        Schema.Attribute.Private;
-    buttonText: Schema.Attribute.String;
     link: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+        'oneToMany',
+        'api::announcement.announcement'
+    > &
+        Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
         Schema.Attribute.Private;

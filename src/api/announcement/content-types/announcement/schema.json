@@ -4,8 +4,7 @@
   "info": {
     "singularName": "announcement",
     "pluralName": "announcements",
-    "displayName": "Announcement",
-    "description": "Organize your content into announcements"
+    "displayName": "Announcement"
   },
   "options": {
     "draftAndPublish": true
@@ -13,10 +12,9 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string",
-      "maxLength": 100
+      "type": "string"
     },
-    "buttonText": {
+    "buttonTitle": {
       "type": "string"
     },
     "link": {
@@ -24,4 +22,3 @@
     }
   }
 }
-
