@@ -20,6 +20,14 @@
       "type": "text",
       "maxLength": 255
     },
+    "seoDescription": {
+      "type": "text",
+      "maxLength": 160
+    },
+    "seoTitle": {
+      "type": "text",
+      "maxLength": 160
+    },
     "slug": {
       "type": "uid",
       "targetField": "title",
@@ -34,6 +42,10 @@
       "multiple": false,
       "required": true,
       "allowedTypes": ["images"]
+    },
+    "coverAlt": {
+      "type": "text",
+      "maxLength": 124
     },
     "author": {
       "type": "relation",
