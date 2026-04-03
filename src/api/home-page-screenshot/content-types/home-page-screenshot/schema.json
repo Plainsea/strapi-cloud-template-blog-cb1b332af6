@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_page_screenshots",
+  "info": {
+    "singularName": "home-page-screenshot",
+    "pluralName": "home-page-screenshots",
+    "displayName": "home page screenshot"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Description": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
