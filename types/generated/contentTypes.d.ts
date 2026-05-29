@@ -641,6 +641,36 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTombolaTombola extends Struct.CollectionTypeSchema {
+  collectionName: 'tombolas';
+  info: {
+    displayName: 'tombola';
+    pluralName: 'tombolas';
+    singularName: 'tombola';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Company: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Email: Schema.Attribute.Email;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tombola.tombola'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1158,6 +1188,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::home-page-screenshot.home-page-screenshot': ApiHomePageScreenshotHomePageScreenshot;
       'api::tag.tag': ApiTagTag;
+      'api::tombola.tombola': ApiTombolaTombola;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
