@@ -7,7 +7,7 @@
     "displayName": "tombola"
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -19,6 +19,10 @@
     },
     "Company": {
       "type": "string"
+    },
+    "IsWinner": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

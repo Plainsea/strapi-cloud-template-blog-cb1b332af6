@@ -5,12 +5,20 @@ module.exports = {
     {
       method: 'GET',
       path: '/tombola/winners',
-      handler: 'tombola.winners',
-      config: {
-        auth: false,
-        policies: [],
-        middlewares: [],
-      },
+      handler: 'tombola.getWinners',
+      config: { auth: false, policies: [], middlewares: [] },
+    },
+    {
+      method: 'POST',
+      path: '/tombola/winners',
+      handler: 'tombola.drawWinners',
+      config: { auth: false, policies: [], middlewares: [] },
+    },
+    {
+      method: 'DELETE',
+      path: '/tombola/winners',
+      handler: 'tombola.resetWinners',
+      config: { auth: false, policies: [], middlewares: [] },
     },
   ],
 };
