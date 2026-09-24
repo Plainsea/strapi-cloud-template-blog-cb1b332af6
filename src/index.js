@@ -1,5 +1,6 @@
 'use strict';
 const bootstrap = require("./bootstrap");
+const migrateArticleBody = require("./migrate-article-body");
 
 module.exports = {
   /**
@@ -17,5 +18,8 @@ module.exports = {
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
    */
-  bootstrap,
+  async bootstrap({ strapi }) {
+    await migrateArticleBody(strapi);
+    await bootstrap();
+  },
 };

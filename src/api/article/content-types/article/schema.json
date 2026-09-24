@@ -65,9 +65,14 @@
       "relation": "oneToMany",
       "target": "api::tag.tag"
     },
+    "body": {
+      "type": "richtext",
+      "required": true
+    },
     "blocks": {
       "type": "dynamiczone",
-      "components": ["shared.rich-text"]
+      "components": ["shared.rich-text"],
+      "visible": false
     }
   }
 }
