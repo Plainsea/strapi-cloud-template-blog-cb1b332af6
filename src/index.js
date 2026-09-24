@@ -8,7 +8,23 @@ module.exports = {
    *
    * This gives you an opportunity to extend code.
    */
-  register(/*{ strapi }*/) {},
+  register({ strapi }) {
+    // New articles start with one empty rich-text block already in `blocks`,
+    // so editors land on an editable block instead of an empty dynamiczone
+    // they have to click "Add a component" on. Only fires on create, so
+    // existing articles and their blocks are untouched.
+    strapi.documents.use((context, next) => {
+      if (context.uid !== 'api::article.article' || context.action !== 'create') {
+        return next();
+      }
+
+      if (!context.params.data.blocks || context.params.data.blocks.length === 0) {
+        context.params.data.blocks = [{ __component: 'shared.rich-text', body: '' }];
+      }
+
+      return next();
+    });
+  },
 
   /**
    * An asynchronous bootstrap function that runs before
