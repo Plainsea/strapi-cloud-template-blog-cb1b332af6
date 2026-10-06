@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_blocks_hero",
+  "info": {
+    "displayName": "Hero",
+    "icon": "layout",
+    "description": "Page header with title, text, image and buttons (for pages without their own header)"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "primaryButtonLabel": {
+      "type": "string"
+    },
+    "primaryButtonLink": {
+      "type": "string"
+    },
+    "secondaryButtonLabel": {
+      "type": "string"
+    },
+    "secondaryButtonLink": {
+      "type": "string"
+    }
+  }
+}

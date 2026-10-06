@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_blocks_feature_panel",
+  "info": {
+    "displayName": "Feature panel",
+    "icon": "star",
+    "description": "One panel: heading, text, a checklist and a button on the left, short facts on the right"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.checklist-item"
+    },
+    "buttonLabel": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "facts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.fact"
+    }
+  }
+}

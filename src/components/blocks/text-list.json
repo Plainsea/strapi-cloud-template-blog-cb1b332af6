@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_blocks_text_list",
+  "info": {
+    "displayName": "Text and list",
+    "icon": "bulletList",
+    "description": "A heading and Markdown text on the left, a column of linked items on the right"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.list-item"
+    }
+  }
+}

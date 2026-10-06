@@ -22,16 +22,29 @@
       "required": true
     },
     "summary": {
-      "type": "text"
-    },
-    "body": {
-      "type": "richtext",
-      "required": true
+      "type": "richtext"
     },
     "cover": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "blocks.metrics",
+        "blocks.rich-text",
+        "blocks.cards",
+        "blocks.text-list",
+        "blocks.tabs",
+        "blocks.checklist",
+        "blocks.feature-panel",
+        "blocks.image-text",
+        "blocks.testimonial",
+        "blocks.cta"
+      ]
     },
     "order": {
       "type": "integer"

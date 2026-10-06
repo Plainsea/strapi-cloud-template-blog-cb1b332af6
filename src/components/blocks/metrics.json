@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_blocks_metrics",
+  "info": {
+    "displayName": "Metrics",
+    "icon": "chartCircle",
+    "description": "A strip of headline numbers"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.metric"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

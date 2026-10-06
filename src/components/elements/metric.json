@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_elements_metric",
+  "info": {
+    "displayName": "Metric",
+    "icon": "chartCircle",
+    "description": "A headline number, e.g. 80% / less exploitable risk"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string",
+      "required": true
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

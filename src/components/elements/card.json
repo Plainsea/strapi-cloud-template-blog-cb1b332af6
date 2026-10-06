@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_elements_card",
+  "info": {
+    "displayName": "Card",
+    "icon": "dashboard",
+    "description": "A card with an icon, title and text"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::icons-field.icon",
+      "options": {
+        "outputFormat": "name",
+        "selection": "phosphor",
+        "showIconLabel": true
+      }
+    },
+    "link": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
