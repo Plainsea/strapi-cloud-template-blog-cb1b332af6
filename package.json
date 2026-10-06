@@ -4,6 +4,8 @@
   "private": true,
   "description": "A Strapi application",
   "scripts": {
+    "postinstall": "node ./scripts/copy-icons.js",
+    "prebuild": "node ./scripts/copy-icons.js",
     "build": "strapi build",
     "deploy": "strapi deploy",
     "develop": "strapi develop",
@@ -12,6 +14,7 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@phosphor-icons/core": "2.1.1",
     "@strapi/plugin-cloud": "5.15.0",
     "@strapi/plugin-users-permissions": "5.15.0",
     "@strapi/strapi": "5.15.0",
@@ -22,6 +25,7 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
     "strapi-cache": "^1.5.9",
+    "strapi-plugin-icons-field": "1.2.5",
     "styled-components": "^6.0.0"
   },
   "engines": {

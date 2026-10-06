@@ -729,7 +729,20 @@ export interface ApiUseCaseUseCase extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    body: Schema.Attribute.RichText & Schema.Attribute.Required;
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.metrics',
+        'blocks.rich-text',
+        'blocks.cards',
+        'blocks.text-list',
+        'blocks.tabs',
+        'blocks.checklist',
+        'blocks.feature-panel',
+        'blocks.image-text',
+        'blocks.testimonial',
+        'blocks.cta',
+      ]
+    >;
     cover: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -745,7 +758,7 @@ export interface ApiUseCaseUseCase extends Struct.CollectionTypeSchema {
     seoDescription: Schema.Attribute.Text;
     seoTitle: Schema.Attribute.Text;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
-    summary: Schema.Attribute.Text;
+    summary: Schema.Attribute.RichText;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

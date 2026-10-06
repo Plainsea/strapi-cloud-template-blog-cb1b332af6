@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_blocks_checklist",
+  "info": {
+    "displayName": "Checklist",
+    "icon": "check",
+    "description": "A list of points with check marks"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.checklist-item"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_blocks_cards",
+  "info": {
+    "displayName": "Cards",
+    "icon": "dashboard",
+    "description": "A grid of icon cards"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.card"
+    },
+    "columns": {
+      "type": "enumeration",
+      "enum": [
+        "auto",
+        "two",
+        "three"
+      ],
+      "default": "auto"
+    },
+    "iconPosition": {
+      "type": "enumeration",
+      "enum": [
+        "beside-title",
+        "above-title"
+      ],
+      "default": "beside-title"
+    }
+  }
+}

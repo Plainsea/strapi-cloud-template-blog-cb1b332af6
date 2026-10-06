@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_blocks_cta",
+  "info": {
+    "displayName": "Call to action",
+    "icon": "cursor",
+    "description": "A closing call to action with one button"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "text"
+    },
+    "buttonLabel": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_elements_tab",
+  "info": {
+    "displayName": "Tab",
+    "icon": "layer",
+    "description": "One tab: its label and icon, and the text shown when it is selected"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::icons-field.icon",
+      "options": {
+        "outputFormat": "name",
+        "selection": "phosphor",
+        "showIconLabel": true
+      }
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "highlight": {
+      "type": "string"
+    }
+  }
+}

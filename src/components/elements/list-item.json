@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_elements_list_item",
+  "info": {
+    "displayName": "List item",
+    "icon": "bulletList",
+    "description": "An item with an icon, title, text and link"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::icons-field.icon",
+      "options": {
+        "outputFormat": "name",
+        "selection": "phosphor",
+        "showIconLabel": true
+      }
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

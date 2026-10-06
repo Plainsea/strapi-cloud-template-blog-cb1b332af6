@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_blocks_rich_text",
+  "info": {
+    "displayName": "Rich text",
+    "icon": "feather",
+    "description": "A heading with Markdown text, and an optional wide image under them"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": [
+        "heading-left",
+        "heading-right",
+        "centered"
+      ],
+      "default": "heading-left"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "framed": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

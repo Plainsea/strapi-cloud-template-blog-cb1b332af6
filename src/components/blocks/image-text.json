@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_blocks_image_text",
+  "info": {
+    "displayName": "Image and text",
+    "icon": "picture",
+    "description": "An image next to Markdown text"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "required": true
+    },
+    "imagePosition": {
+      "type": "enumeration",
+      "enum": [
+        "right",
+        "left"
+      ],
+      "default": "right"
+    },
+    "framed": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

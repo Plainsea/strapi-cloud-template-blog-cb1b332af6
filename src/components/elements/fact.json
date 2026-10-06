@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_elements_fact",
+  "info": {
+    "displayName": "Fact",
+    "icon": "information",
+    "description": "A short labelled fact, e.g. Compliance: SOC 2 Type II"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
