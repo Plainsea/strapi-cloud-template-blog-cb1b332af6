@@ -1,0 +1,85 @@
+{
+  "kind": "collectionType",
+  "collectionName": "glossary_terms",
+  "info": {
+    "singularName": "glossary-term",
+    "pluralName": "glossary-terms",
+    "displayName": "Glossary Term",
+    "description": "Terms at /glossary on the site. With no published terms the glossary is hidden from the site."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "abbreviation": {
+      "type": "string"
+    },
+    "shortDefinition": {
+      "type": "text",
+      "required": true,
+      "maxLength": 320
+    },
+    "isPillar": {
+      "type": "boolean",
+      "default": false
+    },
+    "linkTo": {
+      "type": "string",
+      "regex": "^/[a-z0-9/-]*$"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "blocks.metrics",
+        "blocks.rich-text",
+        "blocks.cards",
+        "blocks.text-list",
+        "blocks.tabs",
+        "blocks.checklist",
+        "blocks.feature-panel",
+        "blocks.image-text",
+        "blocks.testimonial",
+        "blocks.cta"
+      ]
+    },
+    "faq": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.faq-item"
+    },
+    "relatedTerms": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::glossary-term.glossary-term"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "showCoverOnPage": {
+      "type": "boolean",
+      "default": false
+    },
+    "seoTitle": {
+      "type": "text"
+    },
+    "seoDescription": {
+      "type": "text"
+    }
+  }
+}

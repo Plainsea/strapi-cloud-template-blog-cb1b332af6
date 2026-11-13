@@ -236,6 +236,19 @@ export interface ElementsFact extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsFaqItem extends Struct.ComponentSchema {
+  collectionName: 'components_elements_faq_items';
+  info: {
+    description: 'A question and its answer; the site also outputs these as FAQPage structured data';
+    displayName: 'FAQ item';
+    icon: 'question';
+  };
+  attributes: {
+    answer: Schema.Attribute.RichText & Schema.Attribute.Required;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ElementsListItem extends Struct.ComponentSchema {
   collectionName: 'components_elements_list_item';
   info: {
@@ -374,6 +387,7 @@ declare module '@strapi/strapi' {
       'elements.card': ElementsCard;
       'elements.checklist-item': ElementsChecklistItem;
       'elements.fact': ElementsFact;
+      'elements.faq-item': ElementsFaqItem;
       'elements.list-item': ElementsListItem;
       'elements.metric': ElementsMetric;
       'elements.tab': ElementsTab;

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_elements_faq_items",
+  "info": {
+    "displayName": "FAQ item",
+    "icon": "question",
+    "description": "A question and its answer; the site also outputs these as FAQPage structured data"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string",
+      "required": true
+    },
+    "answer": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

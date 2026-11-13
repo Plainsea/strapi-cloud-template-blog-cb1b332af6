@@ -586,6 +586,70 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiGlossaryTermGlossaryTerm
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'glossary_terms';
+  info: {
+    description: 'Terms at /glossary on the site. With no published terms the glossary is hidden from the site.';
+    displayName: 'Glossary Term';
+    pluralName: 'glossary-terms';
+    singularName: 'glossary-term';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    abbreviation: Schema.Attribute.String;
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.metrics',
+        'blocks.rich-text',
+        'blocks.cards',
+        'blocks.text-list',
+        'blocks.tabs',
+        'blocks.checklist',
+        'blocks.feature-panel',
+        'blocks.image-text',
+        'blocks.testimonial',
+        'blocks.cta',
+      ]
+    >;
+    body: Schema.Attribute.RichText;
+    cover: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faq: Schema.Attribute.Component<'elements.faq-item', true>;
+    isPillar: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    linkTo: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::glossary-term.glossary-term'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    relatedTerms: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::glossary-term.glossary-term'
+    >;
+    seoDescription: Schema.Attribute.Text;
+    seoTitle: Schema.Attribute.Text;
+    shortDefinition: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 320;
+      }>;
+    showCoverOnPage: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomePageScreenshotHomePageScreenshot
   extends Struct.SingleTypeSchema {
   collectionName: 'home_page_screenshots';
@@ -1281,6 +1345,7 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::glossary-term.glossary-term': ApiGlossaryTermGlossaryTerm;
       'api::home-page-screenshot.home-page-screenshot': ApiHomePageScreenshotHomePageScreenshot;
       'api::tag.tag': ApiTagTag;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
