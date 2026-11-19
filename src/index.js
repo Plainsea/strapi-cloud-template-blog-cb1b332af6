@@ -3,9 +3,12 @@ const bootstrap = require("./bootstrap");
 const migrateArticleBody = require("./migrate-article-body");
 const setGlossaryAdminHelp = require("./glossary-admin-help");
 const setAdminListViews = require("./admin-list-views");
+const registerHomeDashboard = require("./home-dashboard");
 
 module.exports = {
-  register(/*{ strapi }*/) {},
+  register({ strapi }) {
+    registerHomeDashboard(strapi);
+  },
 
   async bootstrap({ strapi }) {
     await migrateArticleBody(strapi);
