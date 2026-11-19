@@ -1,0 +1,34 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="6.5 0.4 259.8 691" width="260" height="691">
+	<title>PlainSea_logo_color_dark-ai</title>
+	<defs>
+		<linearGradient id="g1" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-510.862,245.048,-85.365,-177.964,404.703,587.941)">
+			<stop offset="0" stop-color="#9563f1"/>
+			<stop offset="1" stop-color="#5b3ed3"/>
+		</linearGradient>
+		<linearGradient id="g2" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-305.572,118.487,-41.066,-105.908,338.741,473.041)">
+			<stop offset="0" stop-color="#00e7b3"/>
+			<stop offset="1" stop-color="#12a388"/>
+		</linearGradient>
+		<linearGradient id="g3" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-410.687,181.831,-69.45,-156.861,328.222,311.222)">
+			<stop offset="0" stop-color="#31f0ff"/>
+			<stop offset="1" stop-color="#0a3bff"/>
+		</linearGradient>
+		<linearGradient id="g4" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-359.847,187.12,-155.709,-299.441,300.571,88.771)">
+			<stop offset="0" stop-color="#31f0ff"/>
+			<stop offset="1" stop-color="#0a3bff"/>
+		</linearGradient>
+	</defs>
+	<style>
+		.s0 { fill: #202030 }
+		.s1 { fill: url(#g1) }
+		.s2 { fill: url(#g2) }
+		.s3 { fill: url(#g3) }
+		.s4 { fill: url(#g4) }
+	</style>
+  <g id="&lt;Group&gt;">
+    <path id="&lt;Path&gt;" class="s1" d="m257 519c-0.7-10.3-9.1-15.9-18.9-12.4l-203.3 81c-9.7 3.5-18.2 14.9-18.8 25.2l-3.4 59.1c-0.6 10.3 6.8 15.9 16.6 12.4l214.4-85c9.7-3.6 17.2-14.9 16.6-25.2z"/>
+    <path id="&lt;Path&gt;" class="s2" d="m245.9 367.8c-0.6-10.3-9-15.9-18.8-12.4l-180.8 72.9c-9.7 3.5-18.2 14.9-18.8 25.2l-3.4 59.1c-0.6 10.3 6.8 15.9 16.6 12.4l191.9-76.9c9.7-3.5 17.2-14.9 16.6-25.2z"/>
+    <path id="&lt;Path&gt;" class="s3" d="m221.6 296.9c9.7-3.5 17.2-14.8 16.6-25.2l-3.3-55c-0.6-10.4-9-16-18.8-12.4l-158.3 64.7c-9.7 3.5-18.2 14.9-18.8 25.2l-3.5 59.1c-0.6 10.3 6.9 15.9 16.6 12.4z"/>
+    <path id="&lt;Path&gt;" class="s4" d="m224.5 148h-175.3c-7.2 0-13.1-5.8-13.1-13v-47.2c0-4 1.9-7.8 5-10.3l87.3-68.3c4.7-3.7 11.3-3.8 16-0.1l88.1 68.4c3.2 2.5 5.1 6.3 5.1 10.3v47.2c0 7.2-5.9 13-13.1 13z"/>
+  </g>
+</svg>
