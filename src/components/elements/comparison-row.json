@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_elements_comparison_rows",
+  "info": {
+    "displayName": "Comparison row",
+    "icon": "layout",
+    "description": "One row of a comparison table: what is compared and how each option does"
+  },
+  "options": {},
+  "attributes": {
+    "criterion": {
+      "type": "string",
+      "required": true
+    },
+    "optionA": {
+      "type": "text",
+      "required": true
+    },
+    "optionB": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

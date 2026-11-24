@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comparisons",
+  "info": {
+    "singularName": "comparison",
+    "pluralName": "comparisons",
+    "displayName": "Comparison",
+    "description": "\"Competitor vs Plainsea\" pages (and a few approach comparisons) at /compare on the site. With no published comparisons the section is hidden from the site."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "kind": {
+      "type": "enumeration",
+      "enum": [
+        "vendor",
+        "approach"
+      ],
+      "default": "vendor",
+      "required": true
+    },
+    "optionA": {
+      "type": "string",
+      "required": true
+    },
+    "optionB": {
+      "type": "string",
+      "required": true
+    },
+    "summary": {
+      "type": "text",
+      "required": true,
+      "maxLength": 400
+    },
+    "rows": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.comparison-row"
+    },
+    "whenToChooseA": {
+      "type": "richtext"
+    },
+    "whenToChooseB": {
+      "type": "richtext"
+    },
+    "plainseaFit": {
+      "type": "richtext"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "faq": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.faq-item"
+    },
+    "sources": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.source-link"
+    },
+    "lastReviewed": {
+      "type": "date",
+      "required": true
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "seoTitle": {
+      "type": "text"
+    },
+    "seoDescription": {
+      "type": "text"
+    }
+  }
+}

@@ -69,27 +69,51 @@ const UIDS = {
   article: 'api::article.article',
   glossary: 'api::glossary-term.glossary-term',
   useCase: 'api::use-case.use-case',
+  comparison: 'api::comparison.comparison',
   testimonial: 'api::testimonial.testimonial',
 };
 
 
-function SectionTag({ section }) {
+function Tag({ tone, outlined, children }) {
   const { colors } = useTheme();
-  const tone = TONES[section] ?? 'neutral';
   return (
     <span
       style={{
         background: colors[`${tone}100`],
         color: colors[`${tone}700`],
+        border: outlined ? `1px solid ${colors[`${tone}200`]}` : 0,
         fontSize: 11,
         fontWeight: 600,
-        padding: '2px 8px',
+        padding: outlined ? '1px 7px' : '2px 8px',
         borderRadius: 4,
         whiteSpace: 'nowrap',
+        flexShrink: 0,
       }}
     >
-      {section}
+      {children}
     </span>
+  );
+}
+
+function SectionTag({ section }) {
+  return <Tag tone={TONES[section] ?? 'neutral'}>{section}</Tag>;
+}
+
+// Outlined, in Strapi's own status colours, so they do not read as one more section tag.
+// Published entries without pending changes get no badge.
+const STATUS_BADGES = {
+  draft: ['Draft', 'secondary'],
+  modified: ['Modified', 'alternative'],
+};
+
+function StatusBadge({ status }) {
+  const badge = STATUS_BADGES[status];
+  if (!badge) return null;
+  const [label, tone] = badge;
+  return (
+    <Tag tone={tone} outlined>
+      {label}
+    </Tag>
   );
 }
 
@@ -113,7 +137,7 @@ function SiteLink({ href }) {
 }
 
 
-function EntryRow({ item, note, noteColor, showTag = true, last }) {
+function EntryRow({ item, note, noteColor, badge, showTag = true, last }) {
   return (
     <Flex
       gap={2}
@@ -122,6 +146,8 @@ function EntryRow({ item, note, noteColor, showTag = true, last }) {
       borderColor="neutral150"
       style={{ borderWidth: 0, borderBottomWidth: last ? 0 : 1, borderStyle: 'solid' }}
     >
+      {/* The status badge leads the row, so a draft is seen before anything else. */}
+      {badge}
       {showTag && <SectionTag section={item.section} />}
       <RouterLink to={item.url} style={{ textDecoration: 'none', flex: 1, minWidth: 0 }}>
         <Typography textColor="neutral800" ellipsis>
@@ -193,8 +219,7 @@ function SearchAll({ index }) {
               <EntryRow
                 key={item.url}
                 item={item}
-                note={item.status === 'draft' ? 'Draft' : null}
-                noteColor="warning600"
+                badge={<StatusBadge status={item.status} />}
                 last={i === results.length - 1}
               />
             ))
@@ -400,7 +425,7 @@ const CHECKS = [
   ['longDash', () => 'Long dash in the text'],
   ['articleWithoutCover', () => 'Article without a cover image'],
   ['staleDraft', (l) => `Draft older than ${l.staleDraftDays} days`],
-  ['bannedWords', () => 'Words we do not use (compliant, retest...)', true],
+  ['bannedWords', () => 'Words we do not use (compliant, delta testing...)', true],
   ['termWithoutRelated', () => 'Glossary term without related terms', true],
   ['termWithoutFaq', () => 'Glossary term without FAQ', true],
   ['termWithoutCover', () => 'Glossary term without a cover image', true],
@@ -536,6 +561,7 @@ export function NeedsAttention() {
 const CREATE = [
   ['Article', UIDS.article],
   ['Glossary term', UIDS.glossary],
+  ['Comparison', UIDS.comparison],
   ['Use case', UIDS.useCase],
   ['Testimonial', UIDS.testimonial],
 ];
@@ -543,6 +569,7 @@ const CREATE = [
 const LISTS = [
   ['Articles', listUrl(UIDS.article)],
   ['Glossary', listUrl(UIDS.glossary)],
+  ['Comparisons', listUrl(UIDS.comparison)],
   ['Use cases', listUrl(UIDS.useCase)],
   ['Testimonials', listUrl(UIDS.testimonial)],
   ['Media Library', '/plugins/upload'],
@@ -553,6 +580,7 @@ const SITE_PAGES = [
   ['Blog', '/blog'],
   ['News', '/news'],
   ['Glossary', '/glossary'],
+  ['Compare', '/compare'],
   ['Sitemap', '/sitemap.xml'],
   ['llms.txt', '/llms.txt'],
 ];

@@ -26,6 +26,12 @@ const VIEWS = {
     sortOrder: 'ASC',
     labels: { isPillar: 'Key topic', updatedAt: 'Updated' },
   },
+  'api::comparison.comparison': {
+    columns: ['title', 'kind', 'lastReviewed', 'slug', 'updatedAt'],
+    sortBy: 'title',
+    sortOrder: 'ASC',
+    labels: { lastReviewed: 'Last reviewed', updatedAt: 'Updated' },
+  },
   'api::use-case.use-case': {
     columns: ['title', 'order', 'slug', 'updatedAt'],
     sortBy: 'order',

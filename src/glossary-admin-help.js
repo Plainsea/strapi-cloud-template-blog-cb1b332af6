@@ -1,6 +1,6 @@
 'use strict';
 
-// Help text shown under each Glossary Term field in the admin edit form.
+// Help text shown under the Glossary Term and Comparison fields in the admin edit form.
 //
 // Strapi keeps these descriptions in the database (the Content Manager's
 // "Configure the view" settings), not in schema.json, so text typed there by
@@ -56,6 +56,69 @@ const HELP = {
     seoDescription: {
       description: 'Text in Google, up to ~155 characters. If empty, the short definition is used.',
     },
+  },
+  'api::comparison.comparison': {
+    title: {
+      description: 'The page heading, e.g. "Pentera vs Plainsea".',
+    },
+    slug: {
+      description: 'Page address: plainsea.com/compare/<slug>. Required to publish. Do not change it once published.',
+      placeholder: 'e.g. pentera-vs-plainsea',
+    },
+    kind: {
+      description: 'Vendor: another product compared with Plainsea. Approach: two ways of testing, e.g. automated vs manual.',
+    },
+    optionA: {
+      description: 'Vendor pages: the other product, e.g. "Pentera". Approach pages: the first approach.',
+    },
+    optionB: {
+      description: 'Vendor pages: always "Plainsea". Approach pages: the second approach.',
+    },
+    summary: {
+      description: '2-3 sentences: which to choose and when. Shown first on the page, in Google and to AI assistants.',
+    },
+    rows: {
+      description: 'The comparison table. One row per criterion, e.g. "How often it runs".',
+    },
+    whenToChooseA: {
+      description: 'When the first option is the better choice. Be fair: a balanced page is more convincing.',
+    },
+    whenToChooseB: {
+      description: 'When the second option is the better choice.',
+    },
+    plainseaFit: {
+      description: 'Approach pages only, optional: a short paragraph on where Plainsea fits. Not shown on vendor pages.',
+    },
+    body: {
+      description: 'Optional. Longer explanation shown after the table.',
+    },
+    faq: {
+      description: 'Common questions with short answers. Also sent to Google as FAQ data.',
+    },
+    sources: {
+      description: 'Where the facts come from. Needed for any claim about another product.',
+    },
+    lastReviewed: {
+      description: 'The day you last checked every fact on this page. Shown as "Last reviewed".',
+    },
+    cover: {
+      description: 'Optional. Used for LinkedIn and X shares.',
+    },
+    seoTitle: {
+      description: 'Title in Google, up to ~60 characters. If empty, the title is used.',
+    },
+    seoDescription: {
+      description: 'Text in Google, up to ~155 characters. If empty, the summary is used.',
+    },
+  },
+  'elements.comparison-row': {
+    criterion: { description: 'What is compared, e.g. "Proof of exploitability".' },
+    optionA: { description: 'How the first option does on this point. One short sentence.' },
+    optionB: { description: 'How the second option does on this point.' },
+  },
+  'elements.source-link': {
+    label: { description: 'What the source is, e.g. "NIST SP 800-115".' },
+    url: { description: 'Full link (https://...) or a page on this site (/glossary/ptaas).' },
   },
   'elements.faq-item': {
     question: {
