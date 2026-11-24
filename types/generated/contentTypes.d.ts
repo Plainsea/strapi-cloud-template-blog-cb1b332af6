@@ -554,6 +554,57 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiComparisonComparison extends Struct.CollectionTypeSchema {
+  collectionName: 'comparisons';
+  info: {
+    description: '"Competitor vs Plainsea" pages (and a few approach comparisons) at /compare on the site. With no published comparisons the section is hidden from the site.';
+    displayName: 'Comparison';
+    pluralName: 'comparisons';
+    singularName: 'comparison';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    body: Schema.Attribute.RichText;
+    cover: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faq: Schema.Attribute.Component<'elements.faq-item', true>;
+    kind: Schema.Attribute.Enumeration<['vendor', 'approach']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'vendor'>;
+    lastReviewed: Schema.Attribute.Date & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comparison.comparison'
+    > &
+      Schema.Attribute.Private;
+    optionA: Schema.Attribute.String & Schema.Attribute.Required;
+    optionB: Schema.Attribute.String & Schema.Attribute.Required;
+    plainseaFit: Schema.Attribute.RichText;
+    publishedAt: Schema.Attribute.DateTime;
+    rows: Schema.Attribute.Component<'elements.comparison-row', true>;
+    seoDescription: Schema.Attribute.Text;
+    seoTitle: Schema.Attribute.Text;
+    slug: Schema.Attribute.UID<'title'>;
+    sources: Schema.Attribute.Component<'elements.source-link', true>;
+    summary: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 400;
+      }>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    whenToChooseA: Schema.Attribute.RichText;
+    whenToChooseB: Schema.Attribute.RichText;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -1344,6 +1395,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::comparison.comparison': ApiComparisonComparison;
       'api::global.global': ApiGlobalGlobal;
       'api::glossary-term.glossary-term': ApiGlossaryTermGlossaryTerm;
       'api::home-page-screenshot.home-page-screenshot': ApiHomePageScreenshotHomePageScreenshot;

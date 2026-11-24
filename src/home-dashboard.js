@@ -6,7 +6,9 @@ const SEO_DESCRIPTION_MAX = 155;
 const STALE_DRAFT_DAYS = 14;
 const LONG_DASH = /[–—]/;
 
-const BANNED_WORDS = /\b(compliant|re-?test(?:s|ed|ing)?|delta[ -]testing|active directory)\b/i;
+// Retesting is a real feature (retest reports), so it is not flagged. The memory feature is "Memory Across Tests":
+// delta and change-based testing implied the platform diffs runs, which it does not.
+const BANNED_WORDS = /\b(compliant|delta[ -](?:re)?testing|change-based testing|active directory)\b/i;
 const ARTICLE_ROUTES = ['blog', 'news'];
 const LOCAL_HOSTS = ['localhost', '127.0.0.1', '::1', '[::1]'];
 
@@ -33,6 +35,16 @@ const TYPES = [
     added: (d) => d.createdAt,
     // Terms with linkTo point at another page and have none of their own.
     path: (d) => (ownPage(d) ? `/glossary/${d.slug}` : d.linkTo.trim().startsWith('/') ? d.linkTo.trim() : '/glossary'),
+    seo: true,
+  },
+  {
+    key: 'comparison',
+    uid: 'api::comparison.comparison',
+    label: 'Comparison',
+    fields: ['title', 'slug', 'optionA', 'optionB', 'summary', 'whenToChooseA', 'whenToChooseB', 'plainseaFit', 'body', 'lastReviewed', 'seoTitle', 'seoDescription', 'createdAt', 'publishedAt'],
+    populate: { rows: true, faq: true, sources: true },
+    added: (d) => d.createdAt,
+    path: (d) => (d.slug ? `/compare/${d.slug}` : null),
     seo: true,
   },
   {
@@ -115,6 +127,7 @@ async function buildDashboard(strapi, { showUseCases }) {
       const live = publishedById.get(d.documentId);
       return live && new Date(d.updatedAt) - new Date(live.updatedAt) > 1000;
     });
+    const changedIds = new Set(changed.map((d) => d.documentId));
 
     const item = (d) => ({
       type: type.key,
@@ -146,7 +159,11 @@ async function buildDashboard(strapi, { showUseCases }) {
       const linked = { ...item(d), siteUrl: path ? `${SITE_URL}${path}` : null };
 
       recent.push({ ...linked, publishedAt: d.publishedAt });
-      index.push({ ...linked, abbreviation: d.abbreviation?.trim() || null, status: 'published' });
+      index.push({
+        ...linked,
+        abbreviation: d.abbreviation?.trim() || null,
+        status: changedIds.has(d.documentId) ? 'modified' : 'published',
+      });
 
       const hasPage = type.key !== 'glossary' || ownPage(d);
 

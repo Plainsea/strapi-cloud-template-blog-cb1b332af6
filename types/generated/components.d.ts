@@ -223,6 +223,20 @@ export interface ElementsChecklistItem extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsComparisonRow extends Struct.ComponentSchema {
+  collectionName: 'components_elements_comparison_rows';
+  info: {
+    description: 'One row of a comparison table: what is compared and how each option does';
+    displayName: 'Comparison row';
+    icon: 'layout';
+  };
+  attributes: {
+    criterion: Schema.Attribute.String & Schema.Attribute.Required;
+    optionA: Schema.Attribute.Text & Schema.Attribute.Required;
+    optionB: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
 export interface ElementsFact extends Struct.ComponentSchema {
   collectionName: 'components_elements_fact';
   info: {
@@ -282,6 +296,19 @@ export interface ElementsMetric extends Struct.ComponentSchema {
   attributes: {
     label: Schema.Attribute.String & Schema.Attribute.Required;
     value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ElementsSourceLink extends Struct.ComponentSchema {
+  collectionName: 'components_elements_source_links';
+  info: {
+    description: 'A source a comparison is based on';
+    displayName: 'Source link';
+    icon: 'link';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -386,10 +413,12 @@ declare module '@strapi/strapi' {
       'blocks.text-list': BlocksTextList;
       'elements.card': ElementsCard;
       'elements.checklist-item': ElementsChecklistItem;
+      'elements.comparison-row': ElementsComparisonRow;
       'elements.fact': ElementsFact;
       'elements.faq-item': ElementsFaqItem;
       'elements.list-item': ElementsListItem;
       'elements.metric': ElementsMetric;
+      'elements.source-link': ElementsSourceLink;
       'elements.tab': ElementsTab;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
