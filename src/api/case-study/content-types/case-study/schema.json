@@ -1,0 +1,95 @@
+{
+  "kind": "collectionType",
+  "collectionName": "case_studies",
+  "info": {
+    "singularName": "case-study",
+    "pluralName": "case-studies",
+    "displayName": "Case study",
+    "description": "Customer stories at /case-studies on the site. With no published case studies the section is hidden from the site."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "customerName"
+    },
+    "customerName": {
+      "type": "string",
+      "required": true
+    },
+    "customerLogo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "logoOnLightBackground": {
+      "type": "boolean",
+      "default": true
+    },
+    "customerWebsite": {
+      "type": "string",
+      "regex": "^https?://[^ ]+$"
+    },
+    "industry": {
+      "type": "string"
+    },
+    "storyDate": {
+      "type": "date"
+    },
+    "summary": {
+      "type": "text",
+      "maxLength": 400
+    },
+    "quote": {
+      "type": "text"
+    },
+    "screenshot": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "highlights": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.highlight"
+    },
+    "atAGlance": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.fact"
+    },
+    "body": {
+      "type": "richtext",
+      "required": true
+    },
+    "people": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.person"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "seoTitle": {
+      "type": "text"
+    },
+    "seoDescription": {
+      "type": "text"
+    }
+  }
+}

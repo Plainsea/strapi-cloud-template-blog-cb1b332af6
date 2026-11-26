@@ -32,6 +32,12 @@ const VIEWS = {
     sortOrder: 'ASC',
     labels: { lastReviewed: 'Last reviewed', updatedAt: 'Updated' },
   },
+  'api::case-study.case-study': {
+    columns: ['customerName', 'title', 'storyDate', 'slug', 'updatedAt'],
+    sortBy: 'storyDate',
+    sortOrder: 'DESC',
+    labels: { customerName: 'Customer', storyDate: 'Date', updatedAt: 'Updated' },
+  },
   'api::use-case.use-case': {
     columns: ['title', 'order', 'slug', 'updatedAt'],
     sortBy: 'order',

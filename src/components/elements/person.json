@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_elements_people",
+  "info": {
+    "displayName": "Person",
+    "icon": "user",
+    "description": "A person featured on a page, with their role and LinkedIn profile"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "role": {
+      "type": "string"
+    },
+    "linkedinUrl": {
+      "type": "string",
+      "regex": "^https://([a-z]{2,3}[.])?linkedin[.]com/[^ ]+$"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

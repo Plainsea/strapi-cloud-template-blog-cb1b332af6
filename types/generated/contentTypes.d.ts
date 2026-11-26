@@ -522,6 +522,56 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
+  collectionName: 'case_studies';
+  info: {
+    description: 'Customer stories at /case-studies on the site. With no published case studies the section is hidden from the site.';
+    displayName: 'Case study';
+    pluralName: 'case-studies';
+    singularName: 'case-study';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    atAGlance: Schema.Attribute.Component<'elements.fact', true>;
+    body: Schema.Attribute.RichText & Schema.Attribute.Required;
+    cover: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    customerLogo: Schema.Attribute.Media<'images'>;
+    customerName: Schema.Attribute.String & Schema.Attribute.Required;
+    customerWebsite: Schema.Attribute.String;
+    highlights: Schema.Attribute.Component<'elements.highlight', true>;
+    industry: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-study.case-study'
+    > &
+      Schema.Attribute.Private;
+    logoOnLightBackground: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    people: Schema.Attribute.Component<'elements.person', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    quote: Schema.Attribute.Text;
+    screenshot: Schema.Attribute.Media<'images'>;
+    seoDescription: Schema.Attribute.Text;
+    seoTitle: Schema.Attribute.Text;
+    slug: Schema.Attribute.UID<'customerName'>;
+    storyDate: Schema.Attribute.Date;
+    summary: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 400;
+      }>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -826,6 +876,49 @@ export interface ApiTombolaTombola extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     Name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTrustPageTrustPage extends Struct.SingleTypeSchema {
+  collectionName: 'trust_pages';
+  info: {
+    description: 'The Trust and security page at /trust: certifications, how customer data and AI agents are handled, and how to request security documents. Unpublished, the page does not exist on the site.';
+    displayName: 'Trust page';
+    pluralName: 'trust-pages';
+    singularName: 'trust-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    certifications: Schema.Attribute.Component<'elements.certification', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    documentRequest: Schema.Attribute.Component<'blocks.cta', false>;
+    faq: Schema.Attribute.Component<'elements.faq-item', true>;
+    intro: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 400;
+      }>;
+    lastUpdated: Schema.Attribute.Date & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::trust-page.trust-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.Component<'elements.trust-section', true>;
+    seoDescription: Schema.Attribute.Text;
+    seoTitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Trust and security'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1394,6 +1487,7 @@ declare module '@strapi/strapi' {
       'api::announcement.announcement': ApiAnnouncementAnnouncement;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
+      'api::case-study.case-study': ApiCaseStudyCaseStudy;
       'api::category.category': ApiCategoryCategory;
       'api::comparison.comparison': ApiComparisonComparison;
       'api::global.global': ApiGlobalGlobal;
@@ -1402,6 +1496,7 @@ declare module '@strapi/strapi' {
       'api::tag.tag': ApiTagTag;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::tombola.tombola': ApiTombolaTombola;
+      'api::trust-page.trust-page': ApiTrustPageTrustPage;
       'api::use-case.use-case': ApiUseCaseUseCase;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

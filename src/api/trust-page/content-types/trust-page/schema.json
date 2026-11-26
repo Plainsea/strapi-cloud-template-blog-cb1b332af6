@@ -1,0 +1,56 @@
+{
+  "kind": "singleType",
+  "collectionName": "trust_pages",
+  "info": {
+    "singularName": "trust-page",
+    "pluralName": "trust-pages",
+    "displayName": "Trust page",
+    "description": "The Trust and security page at /trust: certifications, how customer data and AI agents are handled, and how to request security documents. Unpublished, the page does not exist on the site."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Trust and security"
+    },
+    "intro": {
+      "type": "text",
+      "required": true,
+      "maxLength": 400
+    },
+    "certifications": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.certification"
+    },
+    "sections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.trust-section"
+    },
+    "documentRequest": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.cta"
+    },
+    "faq": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.faq-item"
+    },
+    "lastUpdated": {
+      "type": "date",
+      "required": true
+    },
+    "seoTitle": {
+      "type": "text"
+    },
+    "seoDescription": {
+      "type": "text"
+    }
+  }
+}
