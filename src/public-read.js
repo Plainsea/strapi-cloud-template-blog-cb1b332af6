@@ -6,7 +6,12 @@
 // and the site then quietly shows nothing. Only adds missing find/findOne
 // permissions; never removes anything an editor set.
 
-const PUBLIC_READ = ['api::comparison.comparison', 'api::trust-page.trust-page', 'api::case-study.case-study'];
+const PUBLIC_READ = [
+  'api::comparison.comparison',
+  'api::trust-page.trust-page',
+  'api::case-study.case-study',
+  'api::testimonial.testimonial',
+];
 
 async function ensurePublicRead(strapi) {
   const role = await strapi.query('plugin::users-permissions.role').findOne({ where: { type: 'public' } });

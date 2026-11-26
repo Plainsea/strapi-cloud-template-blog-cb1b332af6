@@ -525,7 +525,7 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
 export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
   collectionName: 'case_studies';
   info: {
-    description: 'Customer stories at /case-studies on the site. With no published case studies the section is hidden from the site.';
+    description: 'Case studies at /case-studies on the site. With no published case studies the section is hidden from the site.';
     displayName: 'Case study';
     pluralName: 'case-studies';
     singularName: 'case-study';
@@ -823,6 +823,10 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
     authorName: Schema.Attribute.String & Schema.Attribute.Required;
     authorRole: Schema.Attribute.String;
     avatar: Schema.Attribute.Media<'images'>;
+    caseStudy: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::case-study.case-study'
+    >;
     companyLogo: Schema.Attribute.Media<'images'>;
     companyName: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
@@ -834,6 +838,8 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
       'api::testimonial.testimonial'
     > &
       Schema.Attribute.Private;
+    logoOnLightBackground: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     order: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     quote: Schema.Attribute.Text & Schema.Attribute.Required;
