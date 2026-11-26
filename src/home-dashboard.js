@@ -48,6 +48,16 @@ const TYPES = [
     seo: true,
   },
   {
+    key: 'caseStudy',
+    uid: 'api::case-study.case-study',
+    label: 'Case study',
+    fields: ['title', 'slug', 'customerName', 'summary', 'quote', 'body', 'seoTitle', 'seoDescription', 'createdAt', 'publishedAt'],
+    populate: { highlights: true, atAGlance: true },
+    added: (d) => d.createdAt,
+    path: (d) => (d.slug ? `/case-studies/${d.slug}` : null),
+    seo: true,
+  },
+  {
     key: 'useCase',
     uid: 'api::use-case.use-case',
     label: 'Use case',

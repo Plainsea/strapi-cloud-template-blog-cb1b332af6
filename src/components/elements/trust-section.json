@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_elements_trust_sections",
+  "info": {
+    "displayName": "Trust section",
+    "icon": "lock",
+    "description": "A titled section of the Trust page, e.g. \"How we protect customer data\""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::icons-field.icon",
+      "options": {
+        "outputFormat": "name",
+        "selection": "phosphor",
+        "showIconLabel": true
+      }
+    },
+    "body": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

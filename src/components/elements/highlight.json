@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_elements_highlights",
+  "info": {
+    "displayName": "Highlight",
+    "icon": "chartBubble",
+    "description": "A headline result, e.g. \"~2 hours\" with \"instead of 1+ day per test\""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    },
+    "caption": {
+      "type": "string"
+    }
+  }
+}

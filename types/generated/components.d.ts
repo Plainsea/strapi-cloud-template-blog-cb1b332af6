@@ -211,6 +211,22 @@ export interface ElementsCard extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsCertification extends Struct.ComponentSchema {
+  collectionName: 'components_elements_certifications';
+  info: {
+    description: 'A certification or audit report, e.g. ISO/IEC 27001 or SOC 2 Type II';
+    displayName: 'Certification';
+    icon: 'shield';
+  };
+  attributes: {
+    badge: Schema.Attribute.Media<'images'>;
+    description: Schema.Attribute.Text;
+    issuer: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ElementsChecklistItem extends Struct.ComponentSchema {
   collectionName: 'components_elements_checklist_item';
   info: {
@@ -263,6 +279,20 @@ export interface ElementsFaqItem extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsHighlight extends Struct.ComponentSchema {
+  collectionName: 'components_elements_highlights';
+  info: {
+    description: 'A headline result, e.g. "~2 hours" with "instead of 1+ day per test"';
+    displayName: 'Highlight';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    caption: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ElementsListItem extends Struct.ComponentSchema {
   collectionName: 'components_elements_list_item';
   info: {
@@ -299,6 +329,21 @@ export interface ElementsMetric extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsPerson extends Struct.ComponentSchema {
+  collectionName: 'components_elements_people';
+  info: {
+    description: 'A person featured on a page, with their role and LinkedIn profile';
+    displayName: 'Person';
+    icon: 'user';
+  };
+  attributes: {
+    linkedinUrl: Schema.Attribute.String;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    photo: Schema.Attribute.Media<'images'>;
+    role: Schema.Attribute.String;
+  };
+}
+
 export interface ElementsSourceLink extends Struct.ComponentSchema {
   collectionName: 'components_elements_source_links';
   info: {
@@ -322,6 +367,28 @@ export interface ElementsTab extends Struct.ComponentSchema {
   attributes: {
     body: Schema.Attribute.RichText;
     highlight: Schema.Attribute.String;
+    icon: Schema.Attribute.Text &
+      Schema.Attribute.CustomField<
+        'plugin::icons-field.icon',
+        {
+          outputFormat: 'name';
+          selection: 'phosphor';
+          showIconLabel: true;
+        }
+      >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ElementsTrustSection extends Struct.ComponentSchema {
+  collectionName: 'components_elements_trust_sections';
+  info: {
+    description: 'A titled section of the Trust page, e.g. "How we protect customer data"';
+    displayName: 'Trust section';
+    icon: 'lock';
+  };
+  attributes: {
+    body: Schema.Attribute.RichText & Schema.Attribute.Required;
     icon: Schema.Attribute.Text &
       Schema.Attribute.CustomField<
         'plugin::icons-field.icon',
@@ -412,14 +479,18 @@ declare module '@strapi/strapi' {
       'blocks.testimonial': BlocksTestimonial;
       'blocks.text-list': BlocksTextList;
       'elements.card': ElementsCard;
+      'elements.certification': ElementsCertification;
       'elements.checklist-item': ElementsChecklistItem;
       'elements.comparison-row': ElementsComparisonRow;
       'elements.fact': ElementsFact;
       'elements.faq-item': ElementsFaqItem;
+      'elements.highlight': ElementsHighlight;
       'elements.list-item': ElementsListItem;
       'elements.metric': ElementsMetric;
+      'elements.person': ElementsPerson;
       'elements.source-link': ElementsSourceLink;
       'elements.tab': ElementsTab;
+      'elements.trust-section': ElementsTrustSection;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

@@ -1,6 +1,6 @@
 'use strict';
 
-// Help text shown under the Glossary Term and Comparison fields in the admin edit form.
+// Help text shown under the Glossary Term, Comparison and Trust page fields in the admin edit form.
 //
 // Strapi keeps these descriptions in the database (the Content Manager's
 // "Configure the view" settings), not in schema.json, so text typed there by
@@ -110,6 +110,87 @@ const HELP = {
     seoDescription: {
       description: 'Text in Google, up to ~155 characters. If empty, the summary is used.',
     },
+  },
+  'api::trust-page.trust-page': {
+    title: { description: 'The page heading, e.g. "Trust and security".' },
+    intro: {
+      description: '1-2 sentences under the heading. Also used in Google and by AI assistants when SEO description is empty.',
+    },
+    certifications: {
+      description: 'Only certifications and reports we hold ourselves. Write "SOC 2 Type II", never "SOC 2 certified" or "compliant".',
+    },
+    sections: {
+      description: 'One section per topic, e.g. "How we protect customer data" or "How AI agents are controlled".',
+    },
+    documentRequest: {
+      description: 'The box asking visitors to request the SOC 2 report or a security questionnaire.',
+    },
+    faq: { description: 'Common security questions with short answers. Also sent to Google as FAQ data.' },
+    lastUpdated: { description: 'The day you last checked every fact on this page. Shown as "Last updated".' },
+    seoTitle: { description: 'Title in Google, up to ~60 characters. If empty, "<title> | Plainsea" is used.' },
+    seoDescription: { description: 'Text in Google, up to ~155 characters. If empty, the intro is used.' },
+  },
+  'api::case-study.case-study': {
+    title: { description: 'The story headline, exactly as the customer approved it.' },
+    slug: {
+      description: 'Page address: plainsea.com/case-studies/<slug>. Required to publish. Do not change it once published.',
+      placeholder: 'e.g. ovation-incentives',
+    },
+    customerName: { description: 'The company name, e.g. "Ovation Incentives".' },
+    customerLogo: {
+      description: 'Only with the customer\'s written permission. SVG or transparent PNG.',
+    },
+    logoOnLightBackground: {
+      description: 'On: the logo sits on a white tile, for dark or coloured logos. Turn off only for a white logo made for dark backgrounds.',
+    },
+    customerWebsite: {
+      description: 'Optional: the customer\'s site (https://...). Not shown on the page, only told to Google. To link it on the page, link the name in the text.',
+    },
+    industry: { description: 'Optional, short, e.g. "Rewards and incentives". Shown on the case study card.' },
+    storyDate: { description: 'The date shown on the story. Also sorts the list, newest first.' },
+    summary: {
+      description: 'Optional, 1-2 sentences for the case studies list. If empty, the first highlight is shown instead.',
+    },
+    quote: { description: 'The main quote shown at the top, with its attribution, as the customer wrote it.' },
+    screenshot: {
+      description: 'Optional: a screenshot of the customer\'s site or product, with their permission. Shown on the story page in a browser frame. Wide images (16:9 or 16:10) look best.',
+    },
+    highlights: {
+      description: 'Up to 3 headline results shown at the top. Value is the big text ("~2 hours"), caption the small text under it.',
+    },
+    atAGlance: { description: 'The "At a glance" facts, e.g. Customer, Founded, Challenge, Results.' },
+    body: {
+      description: 'The full story as the customer approved it. Use ## for section headings and > for quotes.',
+    },
+    people: {
+      description: 'People quoted in the story, with their LinkedIn profile. Upload the photo here: LinkedIn photos cannot be loaded automatically.',
+    },
+    cover: { description: 'Optional. Used for LinkedIn and X shares.' },
+    seoTitle: { description: 'Title in Google, up to ~60 characters. If empty, the title is used.' },
+    seoDescription: { description: 'Text in Google, up to ~155 characters. If empty, the summary is used.' },
+  },
+  'elements.highlight': {
+    label: { description: 'Optional small label above, e.g. "Time per test".' },
+    value: { description: 'The big text, e.g. "~2 hours".' },
+    caption: { description: 'Optional small text under it, e.g. "instead of 1+ day per test".' },
+  },
+  'elements.person': {
+    name: { description: 'Full name, e.g. "Ceno Milov".' },
+    role: { description: 'Job title and company, e.g. "IT Manager, Ovation Incentives".' },
+    linkedinUrl: { description: 'Their LinkedIn profile: https://www.linkedin.com/in/...' },
+    photo: { description: 'Square photo, with the person\'s permission. Save it from LinkedIn or ask them for one.' },
+  },
+  'elements.certification': {
+    name: { description: 'Exact name, e.g. "ISO/IEC 27001" or "SOC 2 Type II".' },
+    issuer: { description: 'Who issued or audited it, e.g. "DNV". Leave empty if unsure.' },
+    description: { description: 'One sentence: what it covers.' },
+    badge: { description: 'The certification logo.' },
+    link: { description: 'Optional: a certificate page or news post (https://... or /news/...).' },
+  },
+  'elements.trust-section': {
+    title: { description: 'Section heading, e.g. "How we protect customer data".' },
+    icon: { description: 'Optional icon next to the heading.' },
+    body: { description: 'Short paragraphs or a list. Only facts we can back up.' },
   },
   'elements.comparison-row': {
     criterion: { description: 'What is compared, e.g. "Proof of exploitability".' },
