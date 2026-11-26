@@ -35,6 +35,15 @@
       "multiple": false,
       "allowedTypes": ["images"]
     },
+    "logoOnLightBackground": {
+      "type": "boolean",
+      "default": false
+    },
+    "caseStudy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::case-study.case-study"
+    },
     "avatar": {
       "type": "media",
       "multiple": false,

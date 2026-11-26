@@ -169,6 +169,14 @@ const HELP = {
     seoTitle: { description: 'Title in Google, up to ~60 characters. If empty, the title is used.' },
     seoDescription: { description: 'Text in Google, up to ~155 characters. If empty, the summary is used.' },
   },
+  'api::testimonial.testimonial': {
+    logoOnLightBackground: {
+      description: 'Turn on for a dark or coloured logo: it then sits on a white tile so it can be read on the dark site.',
+    },
+    caseStudy: {
+      description: 'Optional: the customer\'s case study. The whole quote card then links to it.',
+    },
+  },
   'elements.highlight': {
     label: { description: 'Optional small label above, e.g. "Time per test".' },
     value: { description: 'The big text, e.g. "~2 hours".' },

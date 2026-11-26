@@ -5,7 +5,7 @@
     "singularName": "case-study",
     "pluralName": "case-studies",
     "displayName": "Case study",
-    "description": "Customer stories at /case-studies on the site. With no published case studies the section is hidden from the site."
+    "description": "Case studies at /case-studies on the site. With no published case studies the section is hidden from the site."
   },
   "options": {
     "draftAndPublish": true
